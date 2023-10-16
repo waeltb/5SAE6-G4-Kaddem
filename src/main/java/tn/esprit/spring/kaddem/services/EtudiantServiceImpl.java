@@ -30,22 +30,42 @@ public class EtudiantServiceImpl implements IEtudiantService{
     @Autowired
     DepartementRepository departementRepository;
 	public List<Etudiant> retrieveAllEtudiants(){
-	return (List<Etudiant>) etudiantRepository.findAll();
+		log.info("In method retrieveAllEtudiants");
+	List<Etudiant> etudiants = (List<Etudiant>)  etudiantRepository.findAll();
+		for (Etudiant etudiant : etudiants) {
+			log.info(" Etudiant : " + etudiant);
+		}
+		log.info("out of method retrieveAllEtudiants");
+		return etudiants;
 	}
+
 
 	public Etudiant addEtudiant (Etudiant e){
-		return etudiantRepository.save(e);
+		Etudiant savedEtudiant = etudiantRepository.save(e);
+		log.debug("L'étudiant a été enregistré : " + savedEtudiant.toString());
+		return savedEtudiant;
 	}
 
+
 	public Etudiant updateEtudiant (Etudiant e){
-		return etudiantRepository.save(e);
+		Etudiant savedEtudiant = etudiantRepository.save(e);
+		log.debug("L'étudiant a été modifié : " + savedEtudiant.toString());
+		return savedEtudiant;
 	}
 
 	public Etudiant retrieveEtudiant(Integer  idEtudiant){
-		return etudiantRepository.findById(idEtudiant).get();
+		long start = System.currentTimeMillis();
+		log.info("In method retrieveEtudiant");
+		Etudiant etudiant = etudiantRepository.findById(idEtudiant).orElse(null);
+		log.info("out of method retrieveEtudiant");
+		long elapsedTime = System.currentTimeMillis() - start;
+		log.info("Method execution time: " + elapsedTime + " milliseconds.");
+		return etudiant;
 	}
 
+
 	public void removeEtudiant(Integer idEtudiant){
+		log.info("In method deleteEtudiant");
 	Etudiant e=retrieveEtudiant(idEtudiant);
 	etudiantRepository.delete(e);
 	}
@@ -53,6 +73,10 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	public void assignEtudiantToDepartement (Integer etudiantId, Integer departementId){
         Etudiant etudiant = etudiantRepository.findById(etudiantId).orElse(null);
         Departement departement = departementRepository.findById(departementId).orElse(null);
+		if (etudiant == null || departement == null) {
+			log.error("Impossible d'assigner l'étudiant au département. Etudiant ou département introuvable.");
+			return;
+		}
         etudiant.setDepartement(departement);
         etudiantRepository.save(etudiant);
 	}
@@ -60,12 +84,16 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe){
 		Contrat c=contratRepository.findById(idContrat).orElse(null);
 		Equipe eq=equipeRepository.findById(idEquipe).orElse(null);
+		if (c == null || eq == null) {
+			log.error("Impossible d'ajouter et d'assigner l'étudiant au contrat et à l'équipe. Contrat ou équipe introuvable.");
+			return null;
+		}
 		c.setEtudiant(e);
 		eq.getEtudiants().add(e);
-return e;
+        return e;
 	}
 
 	public 	List<Etudiant> getEtudiantsByDepartement (Integer idDepartement){
-return  etudiantRepository.findEtudiantsByDepartement_IdDepart((idDepartement));
+		return  etudiantRepository.findEtudiantsByDepartement_IdDepart((idDepartement));
 	}
 }
