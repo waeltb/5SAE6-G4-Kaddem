@@ -16,7 +16,6 @@ import tn.esprit.spring.kaddem.repositories.EtudiantRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @Slf4j
@@ -64,10 +63,11 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	}
 
 
-	public void removeEtudiant(Integer idEtudiant){
+	public boolean removeEtudiant(Integer idEtudiant){
 		log.info("In method deleteEtudiant");
 	Etudiant e=retrieveEtudiant(idEtudiant);
 	etudiantRepository.delete(e);
+		return false;
 	}
 
 	public void assignEtudiantToDepartement (Integer etudiantId, Integer departementId){

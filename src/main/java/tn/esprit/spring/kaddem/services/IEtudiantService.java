@@ -13,7 +13,7 @@ public interface IEtudiantService {
 
     public Etudiant retrieveEtudiant(Integer  idEtudiant);
 
-    public void removeEtudiant(Integer idEtudiant);
+    public boolean removeEtudiant(Integer idEtudiant);
 
     public void assignEtudiantToDepartement (Integer etudiantId, Integer departementId);
 

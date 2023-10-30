@@ -41,20 +41,20 @@ public class EtudiantMockitoTest {
     };
 
     @Test
-    public void addEtudiantTest() {
+    public void addEtudiant() {
         Mockito.when(etudiantRepository.save(Mockito.any(Etudiant.class))).then(invocation -> {
             Etudiant model = invocation.getArgument(0, Etudiant.class);
             model.setIdEtudiant(1);
             return model;
         });
-        log.info("In method addEtudiantTest" + etudiant.toString());
+        log.info("In method addEtudiant" + etudiant.toString());
         Etudiant e = etudiantService.addEtudiant(etudiant);
         assertSame(etudiant, e);
-        log.info("Out of method addEtudiantTest" + e.toString());
+        log.info("Out of method addEtudiant" + e.toString());
     }
 
     @Test
-    public void retreiveAllEtudiantsTest() {
+    public void retreiveAllEtudiants() {
         Mockito.when(etudiantRepository.findAll()).thenReturn(list);
         log.info("In method retrieveAllEtudiants");
         List<Etudiant> etudiants= etudiantService.retrieveAllEtudiants();
@@ -76,11 +76,11 @@ public class EtudiantMockitoTest {
     @Test
     public void updateEtudiantTest() {
         Mockito.when(etudiantRepository.save(etudiant)).thenReturn(etudiant);
-        log.info("In method updateEtudiantTest");
+        log.info("In method updateEtudiant");
         Etudiant e = etudiantService.updateEtudiant(etudiant);
         etudiant.setPrenomE("Hedil2");
         assertEquals(etudiant,e);
-        log.info("Out of method updateEtudiantTest" + e.toString());
+        log.info("Out of method updateEtudiant" + e.toString());
     }
 
 }
