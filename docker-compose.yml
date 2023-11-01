@@ -2,28 +2,43 @@ version: "3.8"
 services:
 
   app:
-    container_name: springbootapp
-    build:
-      dockerfile: Dockerfile
-    ports:
-      - "8060:8060"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/db?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=
-      - spring.jpa.show-sql=true
-      - spring.jpa.hibernate.ddl-auto=update
-      - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+    build: ./
     restart: always
     image: app
-    depends_on:
-      - db-mysql
-
-  db-mysql:
-    image: "mysql:5.6"
-    container_name: db-mysql
+    ports:
+      - "8060:8060"
+    networks:
+      - mynetwork
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      SPRING_APPLICATION_JSON: '{
+      "SPRING_DATASOURCE_URL":"jdbc:mysql://mysqldb:3306/kaddem\db?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+      "SPRING_DATASOURCE_USERNAME":"root",
+      "SPRING_DATASOURCE_PASSWORD":"",
+      "spring.jpa.show-sql":"true",
+      "spring.jpa.hibernate.ddl-auto":"update",
+      "spring.jpa.properties.hibernate.dialect":"org.hibernate.dialect.MySQL5Dialect"
+      }'
+
+    depends_on:
+      - mysqldb
+    volumes:
+      - .m2:/root/.m2
+
+
+  mysqldb:
+    image: "mysql:5.7"
     restart: always
     ports:
       - "3306:3306"
+    networks:
+      - mynetwork
+    environment:
+      - MYSQL_DATABASE=kaddem
+      - MYSQL_ALLOW_EMPTY_PASSWORD
+      - MYSQL_ROOT_PASSWORD=
+    volumes:
+      - db:/var/lib/mysql
+
+networks:
+  mynetwork:
+    driver: bridge
