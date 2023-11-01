@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EtudiantServiceImpTest {
 
+
     @Autowired
     IEtudiantService iEtudiantService;
 
@@ -67,7 +68,7 @@ public class EtudiantServiceImpTest {
     @Test
     @Order(5)
     public void deleteEtudiant () {
-        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(20);
+        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(22);
         iEtudiantService.removeEtudiant(etudiant.getIdEtudiant());
         log.info("Etudiant supprimé avec succès !");
     }
