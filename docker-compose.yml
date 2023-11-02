@@ -36,8 +36,6 @@ services:
       - MYSQL_DATABASE=kaddem
       - MYSQL_ALLOW_EMPTY_PASSWORD
       - MYSQL_ROOT_PASSWORD=
-    volumes:
-      - db:/var/lib/mysql
 
 networks:
   mynetwork:

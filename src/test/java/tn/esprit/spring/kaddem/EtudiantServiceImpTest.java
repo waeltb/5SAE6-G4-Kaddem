@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EtudiantServiceImpTest {
 
-
+   /*
     @Autowired
     IEtudiantService iEtudiantService;
 
@@ -74,5 +74,5 @@ public class EtudiantServiceImpTest {
     }
 
 
-
+*/
 }

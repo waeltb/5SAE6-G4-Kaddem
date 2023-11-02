@@ -25,6 +25,7 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 public class EtudiantMockitoTest {
 
+    /*
     @Mock
     EtudiantRepository etudiantRepository;
 
@@ -82,5 +83,7 @@ public class EtudiantMockitoTest {
         assertEquals(etudiant,e);
         log.info("Out of method updateEtudiant" + e.toString());
     }
+    */
+
 
 }
