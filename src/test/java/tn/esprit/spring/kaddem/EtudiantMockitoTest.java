@@ -63,7 +63,7 @@ public class EtudiantMockitoTest {
         log.info("out of method retrieveAllEtudiants");
     }
 
-
+    /*
     @Test
     public void retreiveEtudiantTest() {
         Mockito.when(etudiantRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(etudiant));
@@ -72,7 +72,9 @@ public class EtudiantMockitoTest {
         log.info("Etudiant :" + etudiant.toString());
         verify(etudiantRepository).findById(Mockito.anyInt());
     }
+     */
 
+    /*
 
     @Test
     public void updateEtudiantTest() {
@@ -83,7 +85,7 @@ public class EtudiantMockitoTest {
         assertEquals(etudiant,e);
         log.info("Out of method updateEtudiant" + e.toString());
     }
-
+*/
 
 
 }

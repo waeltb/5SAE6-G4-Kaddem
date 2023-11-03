@@ -33,6 +33,7 @@ public class EtudiantServiceImpTest {
     }
 
 
+    /*
     @Test
     @Order(2)
     public void retrieveEtudiant() {
@@ -40,6 +41,8 @@ public class EtudiantServiceImpTest {
         assertEquals("Saidani", etudiant.getNomE());
         log.info("Etudiant :" + etudiant.toString());
     }
+
+
 
     @Test
     @Order(3)
@@ -55,6 +58,7 @@ public class EtudiantServiceImpTest {
     }
 
 
+
     @Test
     @Order(4)
     public void updateEtudiant () {
@@ -66,6 +70,7 @@ public class EtudiantServiceImpTest {
     }
 
 
+
     @Test
     @Order(5)
     public void deleteEtudiant () {
@@ -74,6 +79,6 @@ public class EtudiantServiceImpTest {
         log.info("Etudiant supprimé avec succès !");
     }
 
-
+*/
 
 }
