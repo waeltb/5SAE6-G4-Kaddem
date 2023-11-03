@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EtudiantServiceImpTest {
 
-   /*
+
     @Autowired
     IEtudiantService iEtudiantService;
 
@@ -65,14 +65,15 @@ public class EtudiantServiceImpTest {
         log.info("Out of method updateEtudiant" + etudiant.toString());
     }
 
+
     @Test
     @Order(5)
     public void deleteEtudiant () {
-        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(22);
+        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(24);
         iEtudiantService.removeEtudiant(etudiant.getIdEtudiant());
         log.info("Etudiant supprimé avec succès !");
     }
 
 
-*/
+
 }
