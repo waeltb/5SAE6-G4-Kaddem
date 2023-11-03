@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+
+  app:
+    build: ./
+    restart: always
+    image: app
+    ports:
+      - "8060:8060"
+    networks:
+      - mynetwork
+    environment:
+      SPRING_APPLICATION_JSON: '{
+      "SPRING_DATASOURCE_URL":"jdbc:mysql://mysqldb:3306/kaddem\db?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+      "SPRING_DATASOURCE_USERNAME":"root",
+      "SPRING_DATASOURCE_PASSWORD":"",
+      "spring.jpa.show-sql":"true",
+      "spring.jpa.hibernate.ddl-auto":"update",
+      "spring.jpa.properties.hibernate.dialect":"org.hibernate.dialect.MySQL5Dialect"
+      }'
+
+    depends_on:
+      - mysqldb
+    volumes:
+      - .m2:/root/.m2
+
+
+  mysqldb:
+    image: "mysql:5.7"
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      - mynetwork
+    environment:
+      - MYSQL_DATABASE=kaddem
+      - MYSQL_ALLOW_EMPTY_PASSWORD
+networks:
+  mynetwork:
+    driver: bridge
