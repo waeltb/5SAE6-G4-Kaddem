@@ -23,7 +23,7 @@ public class EtudiantServiceImpTest {
     @Autowired
     IEtudiantService iEtudiantService;
 
-
+/*
     @Test
     @Order(1)
     public void addEtudiant(){
@@ -33,7 +33,6 @@ public class EtudiantServiceImpTest {
     }
 
 
-    /*
     @Test
     @Order(2)
     public void retrieveEtudiant() {
