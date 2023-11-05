@@ -1,9 +1,9 @@
 version: "3.9"
 services:
 
-  app:
-    container_name: kaddem-app
-    image: app
+  kaddem:
+    container_name: kaddem
+    image: kaddem
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -23,7 +23,7 @@ services:
     volumes:
       - kaddem:/kaddem
     networks:
-    - spring-network
+      - spring-network
 
 
 
