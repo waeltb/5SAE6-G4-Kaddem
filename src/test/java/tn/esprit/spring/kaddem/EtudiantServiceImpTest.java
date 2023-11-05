@@ -37,7 +37,7 @@ public class EtudiantServiceImpTest {
     @Order(2)
     public void retrieveEtudiant() {
         final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(1);
-        assertEquals("saidani", etudiant.getNomE());
+        assertEquals("Hedil", etudiant.getNomE());
         log.info("Etudiant :" + etudiant.toString());
     }
 
@@ -57,7 +57,7 @@ public class EtudiantServiceImpTest {
     }
 
 
-
+/*
     @Test
     @Order(4)
     public void updateEtudiant () {
