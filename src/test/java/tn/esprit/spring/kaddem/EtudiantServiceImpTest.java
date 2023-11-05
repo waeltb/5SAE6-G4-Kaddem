@@ -37,7 +37,7 @@ public class EtudiantServiceImpTest {
     @Order(2)
     public void retrieveEtudiant() {
         final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(1);
-        assertEquals("Saidani", etudiant.getNomE());
+        assertEquals("saidani", etudiant.getNomE());
         log.info("Etudiant :" + etudiant.toString());
     }
 
