@@ -21,9 +21,7 @@ services:
     depends_on:
       - mysqldb
     volumes:
-      - kaddem:/kaddem
-    networks:
-      - spring-network
+      - .m2:/root/.m2
 
 
 
@@ -38,12 +36,7 @@ services:
       - "3306:3306"
     restart:  unless-stopped
     volumes:
-      - mysql:/mysql
-    networks:
-      - spring-network
+      - db:/var/lib/mysql
 
-networks:
-  - spring-network:
 volumes:
-  - kaddem:
-  - mysql:
+  db :
