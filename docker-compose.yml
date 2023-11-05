@@ -14,12 +14,14 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/kaddem\db?&createDatabaseIfNotExist=true
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
-      spring.jpa.show-sql: true
       spring.jpa.hibernate.ddl-auto : update
       spring.jpa.properties.hibernate.dialect : org.hibernate.dialect.MySQL5Dialect
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
 
     depends_on:
       - mysqldb
+    volumes:
+      - kaddem:/kaddem
     networks:
     - spring-network
 
@@ -35,8 +37,13 @@ services:
     ports:
       - "3306:3306"
     restart:  unless-stopped
+    volumes:
+      - mysql:/mysql
     networks:
       - spring-network
 
 networks:
   - spring-network:
+volumes:
+  - kaddem:
+  - mysql:
