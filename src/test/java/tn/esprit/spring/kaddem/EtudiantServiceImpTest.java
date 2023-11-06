@@ -48,7 +48,7 @@ public class EtudiantServiceImpTest {
     public void retrieveAllEtudiant() {
         final List<Etudiant> allEtudiants = this.iEtudiantService.retrieveAllEtudiants();
         if (!CollectionUtils.isEmpty(allEtudiants)) {
-            assertEquals(allEtudiants.size(), 3);
+            assertEquals(allEtudiants.size(), 4);
         }
         log.info("Nombre des étudiants " + allEtudiants.size() + " \n");
         for (int i = 0; i < allEtudiants.size(); i++) {
@@ -73,7 +73,7 @@ public class EtudiantServiceImpTest {
     @Test
     @Order(5)
     public void deleteEtudiant () {
-        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(2);
+        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(3);
         iEtudiantService.removeEtudiant(etudiant.getIdEtudiant());
         log.info("Etudiant supprimé avec succès !");
     }
