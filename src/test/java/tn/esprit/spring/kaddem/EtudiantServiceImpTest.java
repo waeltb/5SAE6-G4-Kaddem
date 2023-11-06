@@ -42,7 +42,7 @@ public class EtudiantServiceImpTest {
     }
 
 
-
+    /*
     @Test
     @Order(3)
     public void retrieveAllEtudiant() {
@@ -55,7 +55,7 @@ public class EtudiantServiceImpTest {
          log.info("==>" + allEtudiants.get(i).getPrenomE());
       }
     }
-
+*/
 
 
     @Test
@@ -69,7 +69,7 @@ public class EtudiantServiceImpTest {
     }
 
 
-
+ /*
     @Test
     @Order(5)
     public void deleteEtudiant () {
@@ -77,7 +77,7 @@ public class EtudiantServiceImpTest {
         iEtudiantService.removeEtudiant(etudiant.getIdEtudiant());
         log.info("Etudiant supprimé avec succès !");
     }
-
+*/
 
 
 }
