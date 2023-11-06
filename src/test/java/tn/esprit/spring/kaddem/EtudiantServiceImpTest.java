@@ -23,7 +23,7 @@ public class EtudiantServiceImpTest {
     @Autowired
     IEtudiantService iEtudiantService;
 
-    /*
+
     @Test
     @Order(1)
     public void addEtudiant(){
@@ -37,7 +37,7 @@ public class EtudiantServiceImpTest {
     @Order(2)
     public void retrieveEtudiant() {
         final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(1);
-        assertEquals("Hedil", etudiant.getNomE());
+        assertEquals("Saidani", etudiant.getNomE());
         log.info("Etudiant :" + etudiant.toString());
     }
 
@@ -57,7 +57,7 @@ public class EtudiantServiceImpTest {
     }
 
 
-/*
+
     @Test
     @Order(4)
     public void updateEtudiant () {
@@ -69,15 +69,15 @@ public class EtudiantServiceImpTest {
     }
 
 
-   /*
+    /*
     @Test
     @Order(5)
     public void deleteEtudiant () {
-        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(24);
+        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(35);
         iEtudiantService.removeEtudiant(etudiant.getIdEtudiant());
         log.info("Etudiant supprimé avec succès !");
     }
-
 */
+
 
 }
