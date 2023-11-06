@@ -73,7 +73,7 @@ public class EtudiantServiceImpTest {
     @Test
     @Order(5)
     public void deleteEtudiant () {
-        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(3);
+        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(4);
         iEtudiantService.removeEtudiant(etudiant.getIdEtudiant());
         log.info("Etudiant supprimé avec succès !");
     }
