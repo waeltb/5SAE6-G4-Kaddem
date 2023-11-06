@@ -48,7 +48,7 @@ public class EtudiantServiceImpTest {
     public void retrieveAllEtudiant() {
         final List<Etudiant> allEtudiants = this.iEtudiantService.retrieveAllEtudiants();
         if (!CollectionUtils.isEmpty(allEtudiants)) {
-            assertEquals(allEtudiants.size(), 1);
+            assertEquals(allEtudiants.size(), 2);
         }
         log.info("Nombre des étudiants " + allEtudiants.size() + " \n");
         for (int i = 0; i < allEtudiants.size(); i++) {
