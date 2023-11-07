@@ -41,14 +41,14 @@ public class EtudiantServiceImpl implements IEtudiantService{
 
 	public Etudiant addEtudiant (Etudiant e){
 		Etudiant savedEtudiant = etudiantRepository.save(e);
-		log.debug("L'étudiant a été enregistré : " + savedEtudiant.toString());
+		log.info("L'étudiant a été enregistré : " + savedEtudiant.toString());
 		return savedEtudiant;
 	}
 
 
 	public Etudiant updateEtudiant (Etudiant e){
 		Etudiant savedEtudiant = etudiantRepository.save(e);
-		log.debug("L'étudiant a été modifié : " + savedEtudiant.toString());
+		log.info("L'étudiant a été modifié : " + savedEtudiant.toString());
 		return savedEtudiant;
 	}
 
