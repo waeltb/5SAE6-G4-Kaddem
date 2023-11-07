@@ -107,7 +107,12 @@
             <url>http://192.168.33.10:8081/repository/maven-releases/</url>
         </repository>
     </distributionManagement> -->
-
+    <distributionManagement>
+        <repository>
+            <id>nexus_cred</id>
+            <url>http://192.168.3.44:8081/repository/nexus_repo/</url>
+        </repository>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>

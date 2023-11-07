@@ -23,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 public class TestJunit {
 
-
     @Autowired
     private IDepartementService departementService;
 
