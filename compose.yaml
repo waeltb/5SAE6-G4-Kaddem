@@ -20,6 +20,7 @@ services:
 
     depends_on:
       - mysqldb
+      - frontend
     volumes:
       - .m2:/root/.m2
 
@@ -45,6 +46,7 @@ services:
       - "80:80"
     depends_on:
       - kaddem
+      - mysqldb
     volumes:
       - .m2:/root/.m2
 
