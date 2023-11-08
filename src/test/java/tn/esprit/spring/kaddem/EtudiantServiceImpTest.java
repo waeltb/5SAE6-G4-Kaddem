@@ -41,22 +41,16 @@ public class EtudiantServiceImpTest {
         log.info("Etudiant :" + etudiant.toString());
     }
 
-
-    /*
     @Test
     @Order(3)
     public void retrieveAllEtudiant() {
-        final List<Etudiant> allEtudiants = this.iEtudiantService.retrieveAllEtudiants();
-        if (!CollectionUtils.isEmpty(allEtudiants)) {
-            assertEquals(allEtudiants.size(), 3);
-        }
+        List<Etudiant> allEtudiants = iEtudiantService.retrieveAllEtudiants();
+        assertTrue(allEtudiants.size() > 0);
         log.info("Nombre des étudiants " + allEtudiants.size() + " \n");
         for (int i = 0; i < allEtudiants.size(); i++) {
-         log.info("==>" + allEtudiants.get(i).getPrenomE());
-      }
+            log.info("==>" + allEtudiants.get(i).getPrenomE());
     }
-*/
-
+}
 
     @Test
     @Order(4)
@@ -68,16 +62,17 @@ public class EtudiantServiceImpTest {
         log.info("Out of method updateEtudiant" + etudiant.toString());
     }
 
-
-    /*
     @Test
     @Order(5)
-    public void deleteEtudiant () {
-        final Etudiant etudiant = this.iEtudiantService.retrieveEtudiant(36);
-        iEtudiantService.removeEtudiant(etudiant.getIdEtudiant());
+    public void testDeleteDepartement() {
+        Etudiant etudiant = new Etudiant();
+        etudiant.setNomE("Hedil2");
+        Etudiant addedEtudiant = iEtudiantService.addEtudiant(etudiant);
+        iEtudiantService.removeEtudiant(addedEtudiant.getIdEtudiant());
+        List<Etudiant> etudiants = iEtudiantService.retrieveAllEtudiants();
+        assertTrue(etudiants.stream().noneMatch(d -> d.getIdEtudiant().equals(addedEtudiant.getIdEtudiant())));
         log.info("Etudiant supprimé avec succès !");
     }
-*/
 
 
 }
