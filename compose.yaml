@@ -35,5 +35,18 @@ services:
     volumes:
       - db:/var/lib/mysql
 
+  frontend:
+    container_name: frontend
+    image: ounimohamed/sakai-ng-master:frontend
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - kaddem
+    volumes:
+      - .m2:/root/.m2
+
 volumes:
   db :

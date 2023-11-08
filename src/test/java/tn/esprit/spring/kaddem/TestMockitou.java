@@ -14,11 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.spring.kaddem.entities.Departement;
 import tn.esprit.spring.kaddem.repositories.DepartementRepository;
 import tn.esprit.spring.kaddem.services.DepartementServiceImpl;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -78,9 +76,7 @@ public class TestMockitou {
         int id = 1;
         Departement departement = new Departement(id, "Test", null);
         when(departementRepository.findById(id)).thenReturn(Optional.of(departement));
-
         Departement result = departementService.retrieveDepartement(id);
-
         assertEquals(departement, result);
     }
 
