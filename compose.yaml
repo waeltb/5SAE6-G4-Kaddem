@@ -20,9 +20,9 @@ services:
 
     depends_on:
       - mysqldb
-      - frontend
-    networks:
-      - back
+     # - frontend
+    #networks:
+     # - back
     volumes:
       - .m2:/root/.m2
 
@@ -37,22 +37,21 @@ services:
     restart:  unless-stopped
     volumes:
       - db:/var/lib/mysql
-    networks:
-      - back
+    #networks:
+     # - back
 
 
-  # Angular Frontend
-  angular-frontend:
-    image: ounimohamed/kaddem-front:latest
-    ports:
-      - "8099:80"
-    depends_on:
-      - kaddem
-    networks:
-      - back
+  #angular-frontend:
+   # image: ounimohamed/kaddem-front:latest
+    #ports:
+     # - "8099:80"
+    #depends_on:
+     # - kaddem
+    #networks:
+     # - back
 
 
 volumes:
   db :
-networks:
-  back:
+#networks:
+ # back:
