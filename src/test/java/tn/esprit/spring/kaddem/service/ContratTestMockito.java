@@ -54,7 +54,7 @@ public class ContratTestMockito {
 
     }
     @Test
-    public void retreiveMagasinTest() {
+    public void retreiveContratTest() {
         Mockito.when(contratRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(c));
         Contrat contrat = contratService.retrieveContrat(1);
         assertNotNull(contrat);
@@ -64,7 +64,7 @@ public class ContratTestMockito {
     }
 
     @Test
-    public void retreiveAllMagasinTest() {
+    public void retreiveAllContratTest() {
         Mockito.when(contratRepository.findAll()).thenReturn(list);
         List<Contrat> magasins = contratService.retrieveAllContrats();
         assertNotNull(magasins);
