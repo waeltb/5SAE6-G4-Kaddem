@@ -13,7 +13,7 @@ services:
 
 
   kaddem:
-    image: achrafelj/projetdevops-0.0.1-snapshot
+    image: waeltalbi/waeltalbi-sae6-g4-kaddem-snapshot
     container_name: waeltalbig4
     depends_on:
       - db
