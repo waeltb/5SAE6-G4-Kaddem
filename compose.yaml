@@ -46,8 +46,7 @@ services:
       - bored-network
     ports:
       - "4200:4200"
-    volumes:
-      - fv:/var/lib/fv
+
 
 
 
