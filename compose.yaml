@@ -21,6 +21,9 @@ services:
       - mysqldb
     volumes:
       - .m2:/root/.m2
+    networks:
+      - my-network
+
 
   mysqldb:
     image: "mysql:5.6"
@@ -33,5 +36,22 @@ services:
     restart: unless-stopped
     volumes:
       - db:/var/lib/mysql
+    networks:
+      - my-network
+
+  angular-app:
+    image: ounimohamed/kaddem-front
+    container_name: angular-app
+    ports:
+      - "4200:80"
+    depends_on:
+      - kaddem
+    networks:
+      - my-network
+
+
 volumes:
   db :
+networks:
+  my-network:
+
