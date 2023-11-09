@@ -17,8 +17,6 @@ services:
      image:   ounimohamed/kaddem-front:latest
      ports:
        - "8099:80"
-     depends_on:
-       - kaddem
      networks:
        - bored-network
 
@@ -41,7 +39,6 @@ services:
 
     depends_on:
       - mysqldb
-      - frontend
     networks:
       - bored-network
     volumes:
