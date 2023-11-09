@@ -13,13 +13,6 @@ services:
     volumes:
       - db:/var/lib/mysql
 
-  frontend:
-     image:   ounimohamed/kaddem-front:latest
-     ports:
-       - "8099:80"
-     networks:
-       - bored-network
-
   kaddem:
     container_name: kaddem
     image: kaddem
@@ -43,6 +36,18 @@ services:
       - bored-network
     volumes:
       - .m2:/root/.m2
+
+  angular-app:
+    image: ounimohamed/kaddem-front:latest
+    container_name: front_c
+    depends_on:
+      - kaddem
+    networks:
+      - bored-network
+    ports:
+      - "4200:4200"
+    volumes:
+      - fv:/var/lib/fv
 
 
 
