@@ -1,6 +1,27 @@
 version: "3.9"
 services:
 
+  mysqldb:
+    image: "mysql:5.6"
+    container_name: mysql-container
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=kaddem
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/mysql
+
+  frontend:
+     image: ounimohamed/kaddem-front:latest
+     ports:
+       - "8099:80"
+     depends_on:
+       - kaddem
+     networks:
+       - bored-network
+
   kaddem:
     container_name: kaddem
     image: kaddem
@@ -20,38 +41,16 @@ services:
 
     depends_on:
       - mysqldb
-     # - frontend
-    #networks:
-     # - back
+      - frontend
+    networks:
+      - bored-network
     volumes:
       - .m2:/root/.m2
 
-  mysqldb:
-    image: "mysql:5.6"
-    container_name: mysql-container
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=kaddem
-    ports:
-      - "3306:3306"
-    restart:  unless-stopped
-    volumes:
-      - db:/var/lib/mysql
-    #networks:
-     # - back
 
 
-  #angular-frontend:
-   # image: ounimohamed/kaddem-front:latest
-    #ports:
-     # - "8099:80"
-    #depends_on:
-     # - kaddem
-    #networks:
-     # - back
-
-
+networks:
+  bored-network:
+    name: bored-network
 volumes:
   db :
-#networks:
- # back:
