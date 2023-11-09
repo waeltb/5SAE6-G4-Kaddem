@@ -14,7 +14,7 @@ services:
       - db:/var/lib/mysql
 
   frontend:
-     image: ounimohamed/kaddem-front:latest
+     image:   ounimohamed/kaddem-front:latest
      ports:
        - "8099:80"
      depends_on:
