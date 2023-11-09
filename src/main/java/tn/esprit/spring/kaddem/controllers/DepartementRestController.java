@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/departement")
-@CrossOrigin(origins = "http://192.168.3.44:8089")
+@CrossOrigin(origins = {"http://192.168.3.44:8020", "http://localhost:4200"})
 public class DepartementRestController {
 	IDepartementService departementService;
 	// http://localhost:8089/Kaddem/departement/retrieve-all-departements
